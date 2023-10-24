@@ -4,6 +4,7 @@ import api from "../../api/api";
 import ImageSlider from "./components/ImageSlider";
 import BusinessInfo from "./components/BusinessInfo";
 import ReviewCard from "./components/ReviewCard";
+import LogoButton from "../shared/LogoButton";
 
 function BusinessDetails() {
   let { alias } = useParams();
@@ -46,8 +47,9 @@ function BusinessDetails() {
 
   return (
     <div>
-      <div className="h-20 border-b border-red-300 w-full flex items-center justify-center">
-        <h1 className="font-bold text-3xl">{business.name}</h1>
+      <div className="h-20 border-b border-red-300 w-full flex items-center justify-center relative">
+        <LogoButton />
+        <h1 className="font-bold text-4xl font-brand">{business.name}</h1>
       </div>
       <div className="flex items-center justify-center">
         <div className="max-w-7xl mx-auto w-full flex flex-row space-x-5 relative">

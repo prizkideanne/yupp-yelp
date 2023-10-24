@@ -1,8 +1,10 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import LogoButton from "../../shared/LogoButton";
 
 function SearchHeader({ term, setTerm, location, setLocation, onSearch }) {
   return (
     <div className="bg-white h-20 border-b top-0 sticky border-red-300 z-20 flex items-center justify-center">
+      <LogoButton />
       <div className="flex flex-row border items-center border-red-300 rounded-lg">
         <input
           placeholder="Restaurants"
