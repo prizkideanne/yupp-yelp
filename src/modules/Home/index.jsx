@@ -132,7 +132,9 @@ function Home() {
           handleNext={onHandleNext}
           handlePrevious={onHandlePrevious}
         />
-        <Maps businesses={businesses} region={region} />
+        <div className="h-[calc(100vh-80px)] flex-1 sticky top-20">
+          <Maps businesses={businesses} region={region} />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
 import CategoryBadge from "./CategoryBadge";
 import StarRating from "./StarRating";
 
 function BusinessCard({ business }) {
   return (
-    <div className="border border-red-300 rounded-lg p-2 flex flex-row space-x-4 w-[550px] grow-0">
+    <Link
+      to={`/${business.alias}`}
+      className="border cursor-pointer border-red-300 rounded-lg p-2 flex flex-row space-x-4 w-[550px] grow-0"
+    >
       <img
         src={business.image_url}
         alt={business.name}
@@ -36,7 +40,7 @@ function BusinessCard({ business }) {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

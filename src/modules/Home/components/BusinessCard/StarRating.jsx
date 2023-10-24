@@ -13,9 +13,11 @@ function StarRating({ rating, reviewCount }) {
         />
       ))}
       <p className="text-slate-600 text-sm mt-1 pl-2">{rating}</p>
-      <p className="text-slate-600 text-sm mt-1 pl-2">
-        ({`${reviewCount} reviews`})
-      </p>
+      {reviewCount && (
+        <p className="text-slate-600 text-sm mt-1 pl-2">
+          ({`${reviewCount} reviews`})
+        </p>
+      )}
     </div>
   );
 }

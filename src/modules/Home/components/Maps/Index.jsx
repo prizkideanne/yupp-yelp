@@ -27,27 +27,25 @@ function Maps({ region, businesses }) {
   }, [businesses, mapReady, region]);
 
   return (
-    <div className="h-[calc(100vh-80px)] flex-1 sticky top-20">
-      <GoogleMap
-        apiKey={import.meta.env.VITE_MAPS_API_KEY}
-        defaultCenter={{
-          lat: region.latitude,
-          lng: region.longitude,
-        }}
-        defaultZoom={12}
-        options={{ disableDefaultUI: true, zoomControl: false }}
-        onGoogleApiLoaded={onGoogleApiLoaded}
-      >
-        {businesses.map((business, index) => (
-          <Marker
-            key={index}
-            lat={business.coordinates.latitude}
-            lng={business.coordinates.longitude}
-            text={index + 1}
-          />
-        ))}
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      apiKey={import.meta.env.VITE_MAPS_API_KEY}
+      defaultCenter={{
+        lat: region.latitude,
+        lng: region.longitude,
+      }}
+      defaultZoom={12}
+      options={{ disableDefaultUI: true, zoomControl: false }}
+      onGoogleApiLoaded={onGoogleApiLoaded}
+    >
+      {businesses.map((business, index) => (
+        <Marker
+          key={index}
+          lat={business.coordinates.latitude}
+          lng={business.coordinates.longitude}
+          text={index + 1}
+        />
+      ))}
+    </GoogleMap>
   );
 }
 
