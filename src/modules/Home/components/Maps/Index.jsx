@@ -42,7 +42,6 @@ function Maps({ region, businesses }) {
           key={index}
           lat={business.coordinates.latitude}
           lng={business.coordinates.longitude}
-          text={index + 1}
         />
       ))}
     </GoogleMap>

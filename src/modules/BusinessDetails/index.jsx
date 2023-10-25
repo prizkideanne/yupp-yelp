@@ -29,6 +29,7 @@ function BusinessDetails() {
         setReviews(data.reviews);
         getInitialData()
           .then(({ data }) => {
+            console.log("business detail", data);
             setBusiness(data);
             setIsLoading(false);
           })
@@ -57,8 +58,8 @@ function BusinessDetails() {
             <ImageSlider photos={business.photos} />
             <BusinessInfo business={business} />
           </div>
-          <div className="flex flex-col mt-5 w-full">
-            <p className="font-medium text-xl mb-5">Reviews</p>
+          <div className="flex flex-col my-5 w-full">
+            <p className="font-medium text-2xl mb-5">Reviews</p>
             <div className="flex flex-col space-y-5">
               {reviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
