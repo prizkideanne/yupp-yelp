@@ -33,7 +33,6 @@ function Home() {
 
     getInitialData()
       .then(({ data }) => {
-        console.log("data", data);
         setBusinesses(data.businesses);
         setTotalPages(Math.ceil(data.total / 10));
         setRegion(data.region.center);
@@ -46,7 +45,6 @@ function Home() {
   }, [offset]);
 
   const onClickPriceFilter = (price) => {
-    console.log("price", price);
     if (priceFilter.includes(price)) {
       const newPrice = [...priceFilter];
       const priceIndex = newPrice.findIndex((value) => value === price);
@@ -110,8 +108,8 @@ function Home() {
   return (
     <div>
       <SearchHeader
-        location={location}
         onSearch={onSearch}
+        location={location}
         setLocation={setLocation}
         setTerm={setTerm}
         term={term}

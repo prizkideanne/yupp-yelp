@@ -25,11 +25,9 @@ function BusinessDetails() {
 
     getReviews()
       .then(({ data }) => {
-        console.log("data", data.reviews);
         setReviews(data.reviews);
         getInitialData()
           .then(({ data }) => {
-            console.log("business detail", data);
             setBusiness(data);
             setIsLoading(false);
           })
