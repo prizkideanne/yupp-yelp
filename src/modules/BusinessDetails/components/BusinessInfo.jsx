@@ -16,6 +16,14 @@ function BusinessInfo({ business }) {
             <CategoryBadge title={category.title} key={category.alias} />
           ))}
         </div>
+        {business.price && (
+          <div className="flex flex-row items-center space-x-2 mt-2">
+            <p className="text-sm">Price Range</p>
+            <p className="text-sm font-medium bg-red-300 rounded-md px-2 ">
+              {business.price}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Maps */}

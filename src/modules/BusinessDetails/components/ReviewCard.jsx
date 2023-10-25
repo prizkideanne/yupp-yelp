@@ -11,7 +11,8 @@ function ReviewCard({ review }) {
         <div className="flex flex-row space-x-4 items-center pb-3">
           <img
             src={user.image_url}
-            className="w-12 h-12 object-fill rounded-full"
+            alt="Profile"
+            className="w-12 h-12 object-fill  border border-red-300 rounded-full text-xs"
           />
           <p>{user.name}</p>
         </div>

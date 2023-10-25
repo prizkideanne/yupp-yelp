@@ -1,16 +1,17 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Pagination } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
 function ImageSlider({ photos }) {
   return (
     <div className="relative w-[700px] h-[400px] rounded-xl">
       <Swiper
-        modules={[EffectFade, Pagination]}
+        modules={[EffectFade, Pagination, Navigation]}
         effect="fade"
         loop
         pagination={{
           clickable: true,
         }}
+        navigation={true}
       >
         {photos.map((photo) => {
           return (
