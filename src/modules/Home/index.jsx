@@ -18,6 +18,7 @@ function Home() {
   const [region, setRegion] = useState({ longitude: 0, latitude: 0 });
   const [location, setLocation] = useState("San Francisco");
   const [term, setTerm] = useState("Restaurant");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -93,6 +94,8 @@ function Home() {
         )}&term=${encodeURI(term)}`
       )
       .then(({ data }) => {
+        console.log(data);
+        setErrorMessage("");
         setOffset(0);
         setBusinesses(data.businesses);
         setTotalPages(Math.ceil(data.total / 10));
@@ -101,6 +104,11 @@ function Home() {
       })
       .catch((err) => {
         console.error("error search", err);
+        if (err.response.data.error.code === "LOCATION_NOT_FOUND") {
+          setErrorMessage(
+            "Sorry, we don't cover the location you are looking for."
+          );
+        }
         setIsLoading(false);
       });
   };
@@ -129,6 +137,7 @@ function Home() {
           totalPages={totalPages}
           handleNext={onHandleNext}
           handlePrevious={onHandlePrevious}
+          errorMessage={errorMessage}
         />
         <div className="h-[calc(100vh-80px)] flex-1 sticky top-20">
           <Maps businesses={businesses} region={region} />
